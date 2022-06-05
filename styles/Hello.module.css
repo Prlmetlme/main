@@ -1,0 +1,26 @@
+.container {
+  height: 100vh;
+  overflow: hidden;
+  
+}
+
+.snap {
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  /* overflow-y: scroll; */
+  overflow-x: hidden;
+}
+
+.nav {
+  display: flex;
+  position: fixed;
+  inset: auto 50% 20px;
+  background-color: hsla(0, 0%, 10%, 0.4);
+  height: 3rem;
+  width: fit-content;
+  border-radius: 1.25rem;
+  padding: 0 .5rem;
+  align-items: center;
+}
+
