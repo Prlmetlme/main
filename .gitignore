@@ -7,7 +7,11 @@
 
 # testing
 /coverage
-/pages/cars
+pages/cars
+public/cars.json
+public/ford.json
+public/lambo.json
+pages/hello.tsx
 
 # next.js
 /.next/
