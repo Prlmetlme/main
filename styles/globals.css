@@ -32,10 +32,26 @@ a {
   transition: .4 ease;
 }
 
-.pill:hover * {
+.pill span {
+  position: relative;
+  transition: .4s ease;
+}
+
+.pill:hover span {
   transform: scale(1.1) translateY(-.5rem); /* (150% zoom on hover) */;
   background-color: rgb(244, 231, 112);
-  transition: .4s ease;
+}
+
+.pill:hover::after {
+  content: url(/vercel.svg);
+  background-color: white;
+  padding: 1rem;
+  border-radius: 15px;
+  display: block;
+  position: absolute;
+  z-index: 5;
+  transform: translateY(-11rem) translateX(-8rem);
+  transition: 1s;
 }
 
 .cursive {
@@ -44,4 +60,41 @@ a {
   color: hsl(0, 0%, 100%);
   font-family: 'Allura', cursive;
   user-select: none;
+}
+
+
+.top-bar * {
+  transition: .5s
+}
+.resume:hover div.wrapper {
+  background-color: rgb(253, 255, 157);
+}
+
+.growing:hover {
+  transform: translateY(-.5rem) scale(1.1) ; /* (150% zoom on hover) */;
+}
+
+.text-adapt {
+  font-size: clamp(1.5rem, 2.5vw, 5rem);
+}
+
+.pop-in {
+  animation: pop-in 1.5s;
+}
+
+.pop-left {
+  animation: pop-left 2.5s;
+}
+
+
+@keyframes pop-in {
+  0% {opacity: 5%; transform: translateY(6rem);}
+  50% { transform: translateY(-.75rem);}
+  100% {opacity: 100%; transform: translateY(0rem);}
+}
+
+@keyframes pop-left {
+  0% {opacity: 5%; transform: translateX(6rem);}
+  50% {transform: translateX(-.75rem);}
+  100% {opacity: 100%; transform: translateX(0rem);}
 }
