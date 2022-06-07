@@ -43,14 +43,15 @@ a {
 }
 
 .pill:hover::after {
-  content: url(/vercel.svg);
+  /* content: url(/vercel.svg); */
+  content: var(--content, url(/loading.gif));
   background-color: white;
   padding: 1rem;
   border-radius: 15px;
   display: block;
   position: absolute;
   z-index: 5;
-  transform: translateY(-11rem) translateX(-8rem);
+  transform: translateY(-17rem) translateX(-8rem);
   transition: 1s;
 }
 
@@ -86,6 +87,16 @@ a {
   animation: pop-left 2.5s;
 }
 
+.testing-this-out::after {
+  content: var(--content-test, "");
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10%;
+  height: 10%;
+  background-color: rgb(158, 52, 52);
+  z-index: 1;
+}
 
 @keyframes pop-in {
   0% {opacity: 5%; transform: translateY(6rem);}
