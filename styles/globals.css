@@ -75,32 +75,56 @@ a {
   animation: pop-in .5s ease-out;
 }
 
-.pop-in2 {
-  animation: pop-in2 1s ease;
+.pop-in-secondary {
+  animation: pop-in-secondary 1s ease;
 }
 
-.pop-left {
-  animation: pop-left 2.5s;
+.slide-in1 {
+  animation: pop-in-up 1.25s ease;
 }
 
+.slide-in2 {
+  animation: pop-in-left 1.25s ease;
+}
 
-@keyframes pop-in {
-  0% {opacity: 0%; transform: translateY(-4.75rem);}
-  85% { transform: translateY(.2rem);}
+.slide-in3 {
+  animation: pop-in-right 1.25s ease;
+}
+
+.slide-in4 {
+  animation: pop-in-down 1.25s ease;
+}
+
+@keyframes pop-in-up {
+  0% {opacity: 0%; transform: translateY(-6.75rem);}
+  70% { transform: translateY(.3rem);}
   100% {opacity: 100%; transform: translateY(0rem);}
 }
 
-@keyframes pop-in2 {
+@keyframes pop-in-left {
+  0% {opacity: 5%; transform: translateX(6.75rem);}
+  50% {transform: translateX(-.3rem);}
+  100% {opacity: 100%; transform: translateX(0rem);}
+}
+
+@keyframes pop-in-right {
+  0% {opacity: 5%; transform: translateX(-6.75rem);}
+  50% {transform: translateX(.3rem);}
+  100% {opacity: 100%; transform: translateX(0rem);}
+}
+
+@keyframes pop-in-down {
+  0% {opacity: 0%; transform: translateY(6.75rem);}
+  70% { transform: translateY(-.3rem);}
+  100% {opacity: 100%; transform: translateY(0rem);}
+}
+
+@keyframes pop-in-secondary {
   0% {opacity: 0%; transform: translateY(-3.75rem);}
   50% {opacity: 0%; transform: translateY(-3.75rem);}
   100% {opacity: 100%; transform: translateY(0rem);}
 }
 
-@keyframes pop-left {
-  0% {opacity: 5%; transform: translateX(6rem);}
-  50% {transform: translateX(-.75rem);}
-  100% {opacity: 100%; transform: translateX(0rem);}
-}
 
 
 
@@ -117,6 +141,7 @@ a {
   opacity: 0;
   width: 0;
   height: 0;
+  position: relative;
 }
 
 /* The slider */
@@ -145,11 +170,11 @@ a {
 }
 
 input:checked + .slider {
-  background-color: #fbbf24;
+  background-color: hsl(43, 96%, 56%);
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #fbbf24;
+  box-shadow: 0 0 1px hsl(43, 96%, 56%);
 }
 
 input:checked + .slider:before {
@@ -166,3 +191,41 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 } 
+
+
+.fill-button {
+  position: relative;
+  isolation: isolate;
+  background-color: transparent;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  color: hsl(216, 82%, 19%);
+  border: 2px hsl(216, 82%, 19%) solid;
+  border-radius: .5rem;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.fill-button:active,
+.fill-button:hover {
+  background-color: hsla(0, 0%, 100%, 0.496);
+  /* color: black; */
+}
+
+#screen-fill {
+  position: absolute;
+  aspect-ratio: 1;
+  width: 100vh;
+  opacity: .1;
+  inset: 50% 0 0 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background-color: hsl(216, 82%, 19%);
+  border-radius: 100%;
+  transition: 1s;
+  z-index: -1;
+}
+
+#screen-fill.pulse {
+  transform: translate(-50%, -50%) scale(3.5);
+  opacity: 1;
+}
